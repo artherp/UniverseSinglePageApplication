@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --text-selectec: hsl(0, 0%, 100%);
+    --text-unselected: hsl(240, 7%, 78%);
+    --texts: hsl(240, 9%, 89%);
+    font-size: clamp(40%, 1% + 2vh, 62.5%);
+    font-family: 'Roboto', sans-serif;
+    color: var(--texts);
+}
+
+body {
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    transition: background-image 0.5s ease-in-out; 
+}
+
+#app {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
+}
+
+#app.slide-out {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+#app.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+header {
+    display: flex;
+    width: 100%;
+    gap: 3.2rem;
+    padding: 4rem 7.2rem;
+    margin-bottom: 17.2rem;
+    align-items: center;
+}
+
+header img {
+    transition: transform 0.3s ease;
+}
+
+header img:hover {
+    transform: scale(1.1);
+}
+
+header nav ul {
+    display: flex;
+    gap: 3.2rem;
+    list-style: none;
+}
+
+header nav a {
+    color: var(--text-unselected);
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 2.4rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 0;
+    height: 0.2rem;
+    background-color: var(--text-selectec);
+    transition: width 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--text-selectec);
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+.home main {
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+.home main h1 {
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 125%;
+    margin-bottom: 2.4rem;
+}
+
+.home main button {
+    padding: 1.2rem 3.2rem;
+    border-radius: 0.5rem;
+    border: solid 0.2rem var(--text-selectec);
+    background: none;
+    font-family: 'Roboto';
+    color: var(--texts);
+    font-weight: 700;
+    line-height: 2.4rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.home main button:hover {
+    animation: pulse 0.6s infinite alternate;
+    color: var(--text-selectec);
+    background-color: var(--texts);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.universe,
+.explore {
+    margin-top: 12rem;
+    margin-left: 9rem;
+    margin-right: 15rem;
+}
+
+.universe h1,
+.explore h1 {
+    font-weight: 700;
+    font-size: 4.8rem;
+    margin-bottom: 1.6rem;
+}
+
+.universe p,
+.explore p {
+    text-align: justify;
+    font-size: 1.8rem;
+    line-height: 160%;
+}
+
+.explore main {
+    margin-top: 6.4rem;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+}
